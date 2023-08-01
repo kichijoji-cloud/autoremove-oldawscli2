@@ -56,7 +56,7 @@ sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --u
 ##### Installation directory for user privileges.
 
 ~~~~
-sudo ./aws/install --bin-dir ~/.local/bin --install-dir ~/.local/aws-cli --update
+./aws/install --bin-dir ~/.local/bin --install-dir ~/.local/aws-cli --update
 ~~~~
 
 ----
