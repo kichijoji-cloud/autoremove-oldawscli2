@@ -23,7 +23,7 @@ This script keeps only the latest version of the AWS-CLI2 installation file and 
 
 ----
 
-### Aasumption
+### Detail
 
 | Software | Version | note |
 | :----------- | :--------- | :--- |
