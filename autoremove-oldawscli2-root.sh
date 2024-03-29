@@ -1,18 +1,14 @@
 #!/bin/bash
 
-
 STARTDIR=`pwd`
 SCRIPTDIR=$(cd $(dirname $0); pwd)
 
-
 function autoremove_oldAWSCLIv2 () {
-
 numsaved=1
-
 #echo "$#"
 if [[ "$#" < 1 ]]; then
  echo "you need argument for target directory."
- exit 0
+ exit 1
 fi
 
 #v2dir=/usr/local/aws-cli/v2/
@@ -26,7 +22,7 @@ if [[ -d "$v2dir" ]]; then
 else
  echo $v2dir
  echo "illegal target directory."
- exit 0
+ exit 1
 fi
 
 cntv2=`ls $v2dir |wc -l`
@@ -37,7 +33,7 @@ ithreshold=$(($cntv2-$cntcur-($numsaved-1)))
 ## easy test for directory. (must not use "/" directory.)
 if [ `echo "$v2dir" |grep -o '/'|wc -l` -lt 2 ]; then
  echo "illegal awscli2 directory. "
- exit 0
+ exit 1
 fi
 
 cd "$v2dir"
@@ -62,5 +58,5 @@ done
 }
 
 autoremove_oldAWSCLIv2  /usr/local/aws-cli/v2/
-
 cd "$STARTDIR"
+
