@@ -15,7 +15,7 @@ fi
 v2dir=$1
 
 #echo "$v2dir"
-retest='^[0-9.]+$'
+retest='^[0-9\.]+$'
 
 if [[ -d "$v2dir" ]]; then
  :
