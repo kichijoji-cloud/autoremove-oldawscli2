@@ -1,4 +1,4 @@
-# Shell-Script for removed old version of AWS-CLI2
+# Shell-Script for removing old version of AWS-CLI2
 
 
 ## Summary
