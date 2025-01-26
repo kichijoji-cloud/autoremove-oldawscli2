@@ -25,8 +25,10 @@ else
  exit 1
 fi
 
-#cntv2=`ls $v2dir |wc -l`
-cntcur=`ls $v2dir |grep -E '^[0-9\.]+$' -c`
+cntv2=`ls $v2dir |wc -l`
+cntcur=`ls $v2dir|grep -e '[0-9\.]*' -c`
+ithreshold=$(($cntcur-$numsaved))
+#echo "$ithreshold"
 
 ## easy test for directory. (must not use "/" directory.)
 if [ `echo "$v2dir" |grep -o '/'|wc -l` -lt 2 ]; then
@@ -35,15 +37,14 @@ if [ `echo "$v2dir" |grep -o '/'|wc -l` -lt 2 ]; then
 fi
 
 cd "$v2dir"
-#maxcnt=$(($cntcur-1))
-#echo $maxcnt
 
 icnt=0
-for v2ver in `ls $v2dir|grep -E '^[0-9\.]+$'|sort -V`
+
+for v2ver in `ls $v2dir |sort -V`
 do
  if [[ "$v2ver" =~ $retest ]] ; then
   ((icnt=icnt+1))
-  if [ $icnt -ge $cntcur ] ; then
+  if [ $icnt -ge $ithreshold ] ; then
    echo "save $v2dir/$v2ver"
    :
   else
@@ -56,6 +57,4 @@ done
 
 }
 
-
-autoremove_oldAWSCLIv2  /usr/local/aws-cli/v2/
-cd "$STARTDIR"
+autoremove_oldAWSCLIv2   /usr/local/aws-cli/v2
