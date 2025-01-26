@@ -57,4 +57,4 @@ done
 
 }
 
-autoremove_oldAWSCLIv2  ~/.local/aws/v2
+autoremove_oldAWSCLIv2  ~/.local/aws-cli/v2
